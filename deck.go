@@ -13,6 +13,7 @@ func (d deck) print() {
 	}
 }
 
+// This function is used to create a new deck
 func newDeck() deck {
 	cards := deck{}
 	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
