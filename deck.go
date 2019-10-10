@@ -6,6 +6,13 @@ import "fmt"
 // which is a slice of strings
 type deck []string
 
+// d is receiver from deck type
+func (d deck) print() {
+	for i, card := range d {
+		fmt.Println(i, card)
+	}
+}
+
 func newDeck() deck {
 	cards := deck{}
 	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
@@ -21,9 +28,9 @@ func newDeck() deck {
 	return cards
 }
 
-// d is receiver from deck type
-func (d deck) print() {
-	for i, card := range d {
-		fmt.Println(i, card)
-	}
+// This function is return separate deck
+func deal(d deck, handSize int) (deck, deck) {
+	dealCards := d[:handSize]
+	remainingCards := d[handSize:]
+	return dealCards, remainingCards
 }
