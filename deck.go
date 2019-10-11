@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strings"
+)
 
 // Create a new type of 'deck'
 // which is a slice of strings
@@ -11,6 +15,17 @@ func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
+}
+
+// This function is used to turn deck into string
+func (d deck) toString() string {
+	return strings.Join(d, ", ")
+}
+
+// This function is used to save the deck into file
+func (d deck) saveToFile(filename string) error {
+	byteConversion := []byte(d.toString())
+	return ioutil.WriteFile(filename, byteConversion, 0666)
 }
 
 // This function is used to create a new deck
@@ -29,7 +44,7 @@ func newDeck() deck {
 	return cards
 }
 
-// This function is return separate deck
+// This function is used to return separate deck
 func deal(d deck, handSize int) (deck, deck) {
 	dealCards := d[:handSize]
 	remainingCards := d[handSize:]
