@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -42,6 +43,17 @@ func newDeck() deck {
 	}
 
 	return cards
+}
+
+// This function is used to create deck from file
+func newDeckFromFile(filenme string) deck {
+	byteSlices, err := ioutil.ReadFile(filenme)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(1)
+	}
+	stringSlices := strings.Split(string(byteSlices), ", ")
+	return deck(stringSlices)
 }
 
 // This function is used to return separate deck
