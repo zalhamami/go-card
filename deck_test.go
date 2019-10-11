@@ -15,7 +15,7 @@ func TestNewDeck(t *testing.T) {
 		t.Errorf("Expected the first element in deck is Ace of Spades, but got %v", deck[0])
 	}
 	if deck[len(deck)-1] != "Four of Clubs" {
-		t.Errorf("Expected the last element in deck is Four of Clubs, but go %v", deck[len(deck)-1])
+		t.Errorf("Expected the last element in deck is Four of Clubs, but got %v", deck[len(deck)-1])
 	}
 }
 
