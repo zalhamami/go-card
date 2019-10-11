@@ -61,8 +61,8 @@ func newDeck() deck {
 }
 
 // This function is used to create deck from file
-func newDeckFromFile(filenme string) deck {
-	byteSlices, err := ioutil.ReadFile(filenme)
+func newDeckFromFile(filename string) deck {
+	byteSlices, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Error:", err)
 		os.Exit(1)
