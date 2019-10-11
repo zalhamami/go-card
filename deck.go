@@ -31,6 +31,7 @@ func (d deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, byteConversion, 0666)
 }
 
+// This function is used to shuffle the cards
 func (d deck) shuffle() {
 	// Create a source/seed
 	uniqueInt64 := time.Now().UnixNano()
